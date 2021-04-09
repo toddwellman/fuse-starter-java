@@ -20,6 +20,7 @@ public interface IexApisClient {
    * Get the historical price for the stock symbol passed in. See https://iextrading.com/developer/docs/#historical-prices.
    *
    * @param symbol stock symbols to get historical price for.
+   * @param range the range of time to get hist prices for
    * @return a list of the prices for the symbol passed in.
    */
   @GetMapping("/stock/{symbol}/chart/{range}?token=${spring.iexToken}")
@@ -30,6 +31,7 @@ public interface IexApisClient {
    * Get the historical price for the stock symbol passed in. See https://iextrading.com/developer/docs/#historical-prices.
    *
    * @param symbol stock symbols to get historical price for.
+   * @param date date to get historical price for.
    * @return a list of the prices for the symbol passed in.
    */
   @GetMapping("/stock/{symbol}/chart/date/{date}?chartByDay=true&token=${spring.iexToken}")
