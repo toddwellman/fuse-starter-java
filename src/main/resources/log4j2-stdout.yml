@@ -20,7 +20,7 @@ Configuration:
   Loggers:
     # Define some defaults
     Root:
-      level: info 
+      level: info
       AppenderRef:
         - ref: Console               
 

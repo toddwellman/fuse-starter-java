@@ -79,4 +79,52 @@ public class IexRestControllerTest extends ASpringTest {
         .andExpect(jsonPath("$", is(Collections.emptyList())))
         .andReturn();
   }
+
+  @Test
+  public void testGetHistoricalPriceWithRange() throws Exception {
+
+    MvcResult result = this.mvc.perform(
+        org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+            .get("/iex/historicalPrices?symbol=IBM&range=1m")
+            .accept(MediaType.APPLICATION_JSON_VALUE))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$[0].symbol", is("IBM")))
+        .andExpect(jsonPath("$[0].close").value(new BigDecimal("124.18")))
+        .andExpect(jsonPath("$[0].low").value(new BigDecimal("124.16")))
+        .andExpect(jsonPath("$[0].high").value(new BigDecimal("126.43")))
+        .andExpect(jsonPath("$[0].open").value(new BigDecimal("125.4")))
+        .andExpect(jsonPath("$[0].date", is("2021-03-09")))
+        .andExpect(jsonPath("$[0].volume", is(5609029)))
+        .andReturn();
+  }
+
+  @Test
+  public void testGetHistoricalPriceWithDate() throws Exception {
+
+    MvcResult result = this.mvc.perform(
+        org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+            .get("/iex/historicalPrices?symbol=IBM&date=20190220")
+            .accept(MediaType.APPLICATION_JSON_VALUE))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$[0].symbol", is("IBM")))
+        .andExpect(jsonPath("$[0].close").value(new BigDecimal("138")))
+        .andExpect(jsonPath("$[0].low").value(new BigDecimal("137.2203")))
+        .andExpect(jsonPath("$[0].high").value(new BigDecimal("139.24")))
+        .andExpect(jsonPath("$[0].open").value(new BigDecimal("138.76")))
+        .andExpect(jsonPath("$[0].date", is("2019-02-20")))
+        .andExpect(jsonPath("$[0].volume", is(3801979)))
+        .andReturn();
+  }
+
+  @Test
+  public void testGetHistoricalPriceEmptySymbol() throws Exception {
+
+    MvcResult result = this.mvc.perform(
+        org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+            .get("/iex/historicalPrices?symbol=")
+            .accept(MediaType.APPLICATION_JSON_VALUE))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$", is(Collections.emptyList())))
+        .andReturn();
+  }
 }
