@@ -74,7 +74,6 @@ public class IexApisService {
             .collect(Collectors.toList());
         historicalPriceRpsy.saveAll(historicalPriceEntries);
       }
-      log.info(historicalPriceRpsy.findBySymbolIgnoreCase(symbol).size() + "total");
 
       return historicalPrices;
     } else {
