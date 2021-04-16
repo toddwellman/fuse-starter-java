@@ -5,26 +5,26 @@
     + [Annotations for mutable entities](#Annotations-for-mutable-entities)
     + [Annotations for immutable entities](#Annotations-for-immutable-entities)
     + [Annotations for components and services](#Annotations-for-components-and-services)
-    + [Note on the use of @Builder](#Note-on-the-use-of-@Builder)
+    + [Note on the use of @Builder](#note-on-the-use-of-builder)
 - [Spring REST services](#Spring-REST-services)
     + [Tracing messages](#Tracing-messages)
     + [Exception handling](#Exception-handling)
     + [Swagger Documentation and UI](#Swagger-Documentation-and-UI)
     + [Content Negotiation](#Content-Negotiation)
 - [FeignClient interaction with HTTP endpoints](#FeignClient-interaction-with-HTTP-endpoints)
-- [JMS (Java Messaging Service)](#JMS-(Java-Messaging-Service))
-    + [JMS Queue vs. JMS Topic](#JMS-Queue-vs.-JMS-Topic)
+- [JMS (Java Messaging Service)](#jms-java-messaging-service)
+    + [JMS Queue vs. JMS Topic](#jms-queue-vs-jms-topic)
     + [JMS Listener](#JMS-Listener)
     + [Listener Containers and Listener Container Factories](#Listener-Containers-and-Listener-Container-Factories)
     + [Message Handling and Jackson Conversion](#Message-Handling-and-Jackson-Conversion)
     + [Important Fuse JMS Files](#Important-Fuse-JMS-Files)
 - [Logging](#Logging)
-    + [File vs. stdout/stderr](#File-vs.-stdout/stderr)
+    + [File vs. stdout/stderr](##file-vs-stdoutstderr)
     + [Single line exception logging](#Single-line-exception-logging)
-- [Wit ai](#Wit-ai)
+- [Wit.ai](#Wit.ai)
     + [Entities](#Entities)
     + [Handling Data](#Handling-Data)
-- [Custom Exceptions: when and how](#Custom-Exceptions:-when-and-how)
+- [Custom Exceptions: when and how](#custom-exceptions-when-and-how)
 - [Galatea coding standards](#Galatea-coding-standards)
     + [Based on Google Style for Java](#Based-on-Google-Style-for-Java)
     + [Extra rules](#Extra-rules)
@@ -44,7 +44,7 @@
             - [Integration tests](#Integration-tests)
             - [Performance tests](#Performance-tests)
             - [Shutdown](#Shutdown)
-    + [SonarQube vs. Checkstyle](#SonarQube-vs.-Checkstyle)
+    + [SonarQube vs. Checkstyle](#sonarqube-vs-checkstyle)
     + [JaCoCo](#JaCoCo)
     + [Domain Objects](#Domain-Objects)
     + [Interacting with a Database](#Interacting-with-a-Database)
@@ -303,7 +303,7 @@ The REST endpoints in the controller are annotated with `@PostMapping` or `@GetM
 Spring MVC will parse to/from the protobuf messages and deliver input parameters already in their Java representation, so in this case only the translation from the Protobuf message classes to the internal object representations is necessary. This is achieved using the [translator](https://github.com/GalateaRaj/fuse-starter-java/blob/develop/src/main/java/org/galatea/starter/MessageTranslationConfig.java) beans in the application. 
 
 
-## CI cuilds
+## CI builds
 All code committed to GitHub and pushed to the cloud repository gets automatically built and the builds get validated.  
 
 If the code is committed to a feature or bugfix branch out of develop, the code will be compiled and the unit test suite will be run against it. Any unit test failures will fail the build.  
