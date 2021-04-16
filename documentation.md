@@ -21,7 +21,7 @@
 - [Logging](#Logging)
     + [File vs. stdout/stderr](#file-vs-stdoutstderr)
     + [Single line exception logging](#Single-line-exception-logging)
-- [Wit.ai](#Wit.ai)
+- [Wit.ai](#witai)
     + [Entities](#Entities)
     + [Handling Data](#Handling-Data)
 - [Custom Exceptions: when and how](#custom-exceptions-when-and-how)
@@ -248,7 +248,7 @@ We can reach our Wit.ai app using an HTTP GET request. Wit will return a JSON wi
 
 We have “_text”, the actual request sentence, “msg_id”, an identifier, and “entities”. Entities is a collection of all the entities included in the request, including intent, if it identifies one. Using Feign and the Jackson converter, fuse takes these files and converts them to usable WitResponse objects with the following structure.
 
-![image](https://drive.google.com/file/d/1hZN4ehVNPbGhLNULNjGrUTf0SRtOuwHG/view?usp=sharing)
+![image](https://drive.google.com/uc?export=view&id=1hZN4ehVNPbGhLNULNjGrUTf0SRtOuwHG)
 
 
 ## Custom exceptions: when and how
